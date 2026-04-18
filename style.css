@@ -49,6 +49,16 @@ padding: 3px;
 color: white;
 }
 
+footer{
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 0px;
+  background-color: #404140;
+  margin-top: 40px;
+  text-align: center;
+}
+
 .destaque {
 background-color: #e8f4ff;
 font-weight: bold;
