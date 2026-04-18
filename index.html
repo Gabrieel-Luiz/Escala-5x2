@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Escala</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <h1 class="titulo">Escala 5x2</h1>
+
+
+
+        <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'calendario')">Calendário</button>
+        <button class="tab-btn" onclick="openTab(event, 'tabela')">Carga Horária Semanal</button>
+        </div>
+
+        <div id="calendario" class="tab-content active">
+            <div class="layout">
+                    <div class="container">
+                        <div class="header">
+                            <button onclick="changeMonth(-1)">&#10094;</button>
+                            <div class="month-title" id="monthTitle"></div>
+                            <button onclick="changeMonth(1)">&#10095;</button>
+                        </div>
+
+                        <div class="grid" id="calendarGrid"></div>
+
+                        <div class="controls">
+                            <label style="font-size: 0.75rem; font-weight: 800; color: #64748b; margin-left: 5px;">Colaboradores Ativos:</label>
+                            <select id="colabSelect" onchange="render()">
+                                <option value="colab1">A</option>
+                                <option value="colab1">B</option>
+                                <option value="colab2">C</option>
+                                <option value="colab2">D</option>
+                                <option value="colab3">E</option>
+                                <option value="colab4">F</option>
+                                <option value="colab5">G</option>
+                            </select>
+                        </div>
+
+                    <div class="legend">
+
+                        <div class="legend-item">
+                            <div class="box trabalho"></div>
+                            Trabalho
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="box folga-semana"></div>
+                            Folga da Semana
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="box folga-fds"></div>
+                            Folga Fim de Semana
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="box feriado"></div>
+                            Feriado
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="box-container">
+                                <div class="box feriado"></div>
+                                <span class="badge badge-folga">F</span>
+                            </div>
+                            Feriado + Folga
+                        </div>
+
+                        <div class="legend-item">
+                            <div class="box-container">
+                                <div class="box feriado"></div>
+                                <span class="badge badge-trabalho">T</span>
+                            </div>
+                            Feriado + Trabalho
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+
+            <div id="tabela" class="tab-content">
+            <div class="tabela-container">
+            <h2>Escala 5x2 – Comparativo de Horários</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de Semana</th>
+                        <th>Horário</th>
+                        <th>Almoço</th>
+                        <th>Tempo Total no Local</th>
+                        <th>Horas Trabalhadas (Líquidas)</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Semana Normal</td>
+                        <td>12:32 às 22:26</td>
+                        <td>1h10</td>
+                        <td>9h54</td>
+                        <td class="destaque">8h44 por dia</td>
+                        <td>Compensação para folga a cada 2 domingos</td>
+                    </tr>
+                    <tr>
+                        <td>Semana com Folga no Domingo</td>
+                        <td>13:20 às 22:26</td>
+                        <td>1h10</td>
+                        <td>9h06</td>
+                        <td class="destaque">7h56 por dia</td>
+                        <td>Horário reduzido na semana da folga de domingo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Diferença Entre as Semanas</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Diferença na Entrada</td>
+                        <td>+48 minutos (entrada mais tarde na semana com folga)</td>
+                    </tr>
+                    <tr>
+                        <td>Diferença de Permanência no Local</td>
+                        <td>-48 minutos</td>
+                    </tr>
+                    <tr>
+                        <td>Diferença de Horas Trabalhadas por Dia</td>
+                        <td>-48 minutos</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+            
+            <!-- Mini tabelas movidas para dentro da aba "tabela" -->
+
+
+            <div class="mini-tabela">
+                <h3>Sem folga no Domingo</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dia</th>
+                            <th>Entrada</th>
+                            <th>Saída</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Segunda a Sábado</td>
+                            <td>12:32</td>
+                            <td>22:26</td>                            
+                        </tr>
+                        <tr>
+                            <td>Segunda a Sábado</td>
+                            <td>06:00</td>
+                            <td>15:58</td>                            
+                        </tr>
+                        <tr>
+                            <td>Segunda a Sábado</td>
+                            <td>07:00</td>
+                            <td>16:58</td>                            
+                        </tr>
+                        <tr>
+                            <td>Segunda a Sábado</td>
+                            <td>10:00</td>
+                            <td>19:58</td>                            
+                        </tr>
+                        <tr>
+                            <td>Alomoço</td>
+                            <td>1h10</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mini-tabela">
+                <h3>Com Folga no Domingo</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dia</th>
+                            <th>Entrada</th>
+                            <th>Saída</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Semana com Folga no Domingo</td>
+                            <td>06:00</td>
+                            <td>14:10</td>
+                        </tr>
+                        <tr>
+                            <td>Semana com Folga no Domingo</td>
+                            <td>07:00</td>
+                            <td>16:10</td>
+                        </tr>
+                        <tr>
+                            <td>Semana com Folga no Domingo</td>
+                            <td>10:00</td>
+                            <td>19:10</td>
+                        </tr>
+                        <tr>
+                            <td>Semana com Folga no Domingo</td>
+                            <td>13:20</td>
+                            <td>22:26</td>
+                        </tr>            
+                        <tr>
+                            <td>Alomoço</td>
+                            <td>1h10</td>
+                        </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        <script src="script.js"></script>  
+
+    </body>
+</html>

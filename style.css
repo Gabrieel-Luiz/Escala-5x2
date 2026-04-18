@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+:root {
+--bg: #f8fafc;
+--folga-fds: #fb923c; 
+--folga-semana: #4ade80; 
+--trabalho: #ffffff;
+--primary: #4f46e5;
+--text: #1e293b;
+--font-padrao: Arial, sans-serif;
+--cor1: rgb(0, 0, 0);
+--cor2: rgb(255, 255, 255);
+--cor3: rgb(73, 180, 69);
+}
+
+
+
+body {
+background-color: var(--cor3);
+font-family: 'Inter', system-ui, sans-serif;
+color: var(--text);
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px;
+}
+
+h2 {
+text-align: center;
+}
+
+table {
+width: 100%;
+max-width: 600px;
+border: 1px solid #ccc;
+border-collapse: separate;
+background-color: #ffffff;
+}
+
+th, td {
+border: 0.2rem solid #ccc;
+padding: 3px;
+text-align: center;
+}
+
+th {
+background-color: #1d9419;
+padding: 3px;
+color: white;
+}
+
+.destaque {
+background-color: #e8f4ff;
+font-weight: bold;
+}
+
+/* ========================= 🔹 FERIADO 🔹 ========================= */
+
+.feriado {
+background: #ef4444 !important;
+color: white !important;
+border-color: #ef4444 !important;
+font-weight: bold;
+box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+}
+
+.titulo {
+font-size: 2.5rem;
+font-family: var(--font-padrao);
+color: var(--cor1);
+margin-bottom: 30px;
+text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.container { 
+background: white;
+padding: 25px;
+border-radius: 16px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+width: 100%;
+max-width: 550px;
+}
+
+.layout {
+display: flex;
+gap: 30px;
+align-items: flex-start;
+justify-content: center;
+width: 100%;
+flex-wrap: wrap; /* 🔹 quebra em telas pequenas */
+}
+
+.tabela-container {
+background: white;
+padding: 25px;
+border-radius: 16px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+width: 100%;
+max-width: 550px;
+margin: 0 auto; /* 🔹 Centraliza horizontalmente */
+}
+
+.header { 
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px; 
+}
+
+.month-title { 
+font-size: 1.3rem;
+font-weight: 800;
+text-transform: uppercase;
+color: var(--primary);
+letter-spacing: 1px;
+}
+
+.grid { 
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+gap: 8px;
+}
+
+.day-name {
+text-align: center;
+font-size: 0.75rem;
+font-weight: 700;
+color: #94a3b8;
+padding: 10px 0;
+}
+
+.day { 
+aspect-ratio: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center; 
+border: 1px solid #f1f5f9;
+border-radius: 10px;
+font-size: 1rem;
+position: relative;
+transition: all 0.2s ease;
+}
+
+.folga-fds { 
+background: var(--folga-fds) !important;
+color: white;
+border-color: var(--folga-fds);
+font-weight: bold;
+box-shadow: 0 4px 10px rgba(251, 146, 60, 0.3);
+}
+
+.folga-dia {
+background: var(--folga-semana) !important;
+color: white; 
+border-color: var(--folga-semana);
+font-weight: bold;
+box-shadow: 0 4px 10px rgba(74, 222, 128, 0.3);
+}
+
+.trabalho {
+background: var(--trabalho);
+color: #64748b;
+}
+
+.empty {
+border: none;
+background: transparent;
+}
+
+.ciclo-label {
+font-size: 0.6rem;
+position: absolute;
+bottom: 4px;
+font-weight: bold;
+opacity: 0.7;
+}
+
+.controls { 
+margin-top: 25px;
+display: grid;
+gap: 10px;
+}
+
+select {
+width: 100%;
+padding: 12px;
+border-radius: 10px;
+border: 2px solid #e2e8f0;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+color: var(--text);
+appearance: none;
+}
+
+.legend { 
+display: flex;
+justify-content: center;
+margin-top: 20px;
+font-size: 0.8rem;
+background: #f8fafc;
+padding: 12px;
+border-radius: 10px;
+gap: 10px;
+flex-wrap: wrap;
+}
+
+.legend-item { 
+display: flex;
+align-items: center;
+gap: 6px;
+}
+
+.box {
+width: 14px;
+height: 14px;
+border-radius: 4px;
+}
+
+button {
+background: white;
+border: 1px solid #e2e8f0;
+padding: 8px 16px;
+border-radius: 8px;
+cursor: pointer;
+transition: 0.2s;
+font-weight: bold;
+}
+
+button:hover {
+background: #f1f5f9;
+border-color: #cbd5e1;
+}
+
+/* 🔹 Indicador quando for feriado + escala */
+.status-label {
+font-size: 0.55rem;
+position: absolute;
+top: 4px;
+right: 4px;
+font-weight: bold;
+background: rgba(0,0,0,0.25);
+padding: 2px 4px;
+border-radius: 4px;
+}
+
+.status-folga {
+background: #16a34a;
+}
+
+.status-trabalho {
+background: #1e293b;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.box {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+}
+
+/* Cores */
+
+.trabalho {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.folga-semana {
+    background: var(--folga-semana);
+}
+
+.folga-fds {
+    background: var(--folga-fds);
+}
+
+.feriado {
+    background: #ef4444;
+}
+
+/* Container para badge */
+
+.box-container {
+    position: relative;
+}
+
+/* Badge */
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    padding: 1px 3px;
+    border-radius: 3px;
+}
+
+.badge-folga {
+    background: #16a34a;
+}
+
+.badge-trabalho {
+    background: #1e293b;
+}
+
+
+/* ========================= 🔹 ABAS 🔹 ========================= */
+
+.tabs {
+display: flex;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+.tab-btn {
+padding: 10px 20px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-weight: bold;
+background: #e2e8f0;
+}
+
+.tab-btn.active {
+background: var(--primary);
+color: white;
+}
+
+.tab-content {
+display: none;
+width: 100%;
+}
+
+.tab-content.active {
+display: block;
+}
+
+.mini-tabela {
+    margin: 0 auto 20px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.mini-tabela table {
+    width: 100%;
+    border-collapse: separate;
+    background-color: #ffffff;
+    
+}
+
+.mini-tabela th, .mini-tabela td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    font-size: 0.9rem;
+}
+
+.mini-tabela th {
+    background-color: rgb(34, 121, 31);
+    color: white;
+    font-weight: bold;
+}
