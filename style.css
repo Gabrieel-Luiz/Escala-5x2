@@ -51,7 +51,7 @@ color: white;
 
 footer{
   width: 100vw;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   padding: 10px 0px;
   background-color: #404140;
